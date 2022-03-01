@@ -33,9 +33,9 @@
 
 .loading {
   display: none;
-  width: 30%;
+  width: 25%;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
