@@ -14,32 +14,36 @@
     <div class="container text-center">
         <h2 id="heading" class="text-center text-success my-3"></h2>
         <div class="loading" id="load">
-            <img src="./images/loading-36.gif" alt="loader-img">
+            
         </div>
 
         <div class="my-5">
-            <div class="d-flex w-50 mx-auto search">
+            <div class="d-flex w-75 mx-auto search">
                 <div class="error">
                     <p class="massage"></p>
                 </div>
-                <input id="input-value" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input id="input-value" class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
                 <button onclick="getData()" class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </div>
+
+           <!-- Signle Mobiledisplay in Modal -->
+      
+        <div id="mobileModal" class="mx-auto mb-4 p-md-5">
+                
+        </div>
+
         <!-- Mobile container -->
         <div id="noData">
             <h1> No data found!</h1>
+            <img src="./images/loading-36.gif" alt="loader-img">
         </div>
         <div id="mobile-container" class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-i">
             <img src="./images/mobile.jpg" alt="">
 
         </div>
-        <!-- Signle Mobiledisplay in Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div id="mobileModal" class="modal-dialog h-auto">
-                
-            </div>
-        </div>
+     
+       
     </div>
         
 

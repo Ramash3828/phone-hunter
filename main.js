@@ -30,7 +30,9 @@ const getData = () => {
         massage.style.display = "block";
         inputField.value = "";
         mobileContainer.textContent = "";
-        loader("block");
+        notFound("block") 
+        mobileModal.style.display = "none";
+    
         setTimeout(() => {
             massage.style.display = "none";
             // loader("none");
@@ -40,7 +42,8 @@ const getData = () => {
         fetch(`https://openapi.programming-hero.com/api/phones?search=${inputField.value.toLowerCase()}`)
         .then((res => res.json()))
         .then(data =>  displayItem(data.data))    
-        loader("none");
+        notFound("none") 
+        mobileModal.style.display = "none";
     }
 }  
 // Loader function
@@ -51,13 +54,11 @@ const displayItem = (items) => {
  
     // Data not found
     if(items.length == 0){
-        notFound("block")
-        loader("block")
-        setTimeout(() => {
-          
-            notFound("none");
-            loader("none");
-        }, 5000)
+        notFound("block") 
+        mobileModal.style.display = "none";
+      
+    }else{
+        notFound("none");
     }
 
     // Remove Previous element
@@ -109,20 +110,16 @@ function displayData(data) {
 
     // Remove Previous element
     mobileModal.textContent = "";
+    mobileModal.style.display = "block";
     //Create div element
     const div = document.createElement('div');
     div.classList.add('modal-content');
-    div.innerHTML = `
-        <div class="modal-header">
-            <h5 class="modal-title text-success" id="exampleModalLabel">${data.name}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        
-        <div class="modal-body w-100 mx-auto">
-            <div class="row w-100 g-0">
+    div.innerHTML = `           
+       
+            <div class="row w-100 g-4 p-md-5">
                 <div class="col-md-4 align-items-center">
                     <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
-                        
+                    <h5 class="modal-title text-success mt-3 mb-1" id="exampleModalLabel"><strong>Name:</strong> ${data.name}</h5>                        
                     <p class="card-text mt-3 mb-0"><strong>Release Date:</strong></p>
                     <p class="card-text mt-0">${releaseDate}</p>
                 </div>
@@ -147,11 +144,8 @@ function displayData(data) {
                     </div>
                 </div>
             </div>                  
-        </div>
+      
 
-        <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
     `;
     mobileModal.appendChild(div);
 

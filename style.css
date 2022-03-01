@@ -46,7 +46,10 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
-.loading img {
-  width: 100%;
+#noData img {
+  width: 20%;
   object-fit: cover;
+}
+#mobileModal {
+  display: none;
 }
