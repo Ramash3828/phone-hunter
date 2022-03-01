@@ -7,7 +7,23 @@
     <title>Android Phone Feature</title>
 </head>
 <body>
-    <h2>Android Phone</h2>
+    <div class="container text-center">
+        <h2 id="heading" class="text-center text-success my-3"></h2>
+
+        <div class="my-5">
+            <div class="d-flex w-50 mx-auto search">
+                <div class="error">
+                    <p class="massage"></p>
+                </div>
+                <input id="input-value" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button onclick="getData()" class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+        </div>
+        <!-- Mobile container -->
+        <div id="Mobile-container" class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        </div>
+        
+    </div>
 
 
     <script src="main.js"></script>
