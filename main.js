@@ -1,6 +1,6 @@
 // Get Element
 const heading = document.getElementById('heading');
-let text = "Select Your Fevorite mobile";
+let text = "Search Your Fevorite mobile";
 const massage = document.getElementsByClassName('massage')[0];
 const inputField = document.getElementById('input-value');
 const mobileContainer = document.getElementById('mobile-container');
@@ -96,7 +96,7 @@ function displayData(data) {
     // Release Date
     let releaseDate = "";
     if(data.releaseDate == ""){
-        releaseDate = "No date"
+        releaseDate = "No date updated"
     }else{
         releaseDate = data.releaseDate;
     }
@@ -137,8 +137,8 @@ function displayData(data) {
 
                         <fieldset>
                             <legend>Others:</legend>
-                            <p class="card-text mb-0"><strong>WLAN:</strong> ${data.others !== undefined ? data.others.WLAN : "No property update."}</p>
-                            <p class="card-text"> <strong>Bluetooth:</strong> ${data.others !== undefined ? data.others.Bluetooth : "No property update."}</p>
+                            <p class="card-text mb-0"><strong>WLAN:</strong> ${data.others !== undefined ? data.others.WLAN : "No property updated."}</p>
+                            <p class="card-text"> <strong>Bluetooth:</strong> ${data.others !== undefined ? data.others.Bluetooth : "No property updated."}</p>
                         </fieldset>
                         <fieldset>
                             <legend>Sensors:</legend>
