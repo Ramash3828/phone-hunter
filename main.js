@@ -52,5 +52,50 @@ const displayItem = (items) => {
     const signleItem = function(mobileID) {
         fetch(`https://openapi.programming-hero.com/api/phone/${mobileID}`)
             .then((res => res.json()))
-            .then(data => console.log(data.data))
+            .then(data => displayData(data.data))
     }
+// Display Signle Item
+function displayData(data) {
+console.log(data)
+    // Remove Previous element
+    mobileModal.textContent = "";
+    //Create div element
+    const div = document.createElement('div');
+    div.classList.add('modal-content');
+    div.innerHTML = `
+                <div class="modal-header">
+                    <h5 class="modal-title text-success" id="exampleModalLabel">${data.name}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+              
+                <div class="modal-body w-100 mx-auto">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
+                            <p class="card-text">Release Date: ${data?.releaseDate}</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">                       
+                            <fieldset>
+                                <legend>Main Features:</legend>
+                                <p class="card-text">Storage: ${data.mainFeatures.storage}</p>
+                                <p class="card-text">Display Size: ${data.mainFeatures.displaySize}</p>                       
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Others:</legend>
+                                <p class="card-text">WLAN: ${data.others.WLAN}</p>
+                                <p class="card-text">Bluetooth: ${data.others.Bluetooth}</p>
+                            </fieldset>
+                            </div>
+                        </div>
+                    </div>                  
+                </div>
+
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            `;
+            mobileModal.appendChild(div);
+
+}
