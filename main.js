@@ -12,9 +12,8 @@ let start = 0;
 function textTypieng() {
     heading.innerText = text.slice(0, start);
     start++;
-  console.log(start)
-    if(heading.innerText.length == text.length){
-        console.log('clear')
+
+    if(heading.innerText.length == text.length){ 
         clearInterval(time)       
         return false;
     }
@@ -56,7 +55,7 @@ const displayItem = (items) => {
         <img  src="${mobile.image}" class="card-img-top img-fluid" alt="${mobile.phone_name}">
         <div class="card-body">
             <h5 class="card-title">${mobile.phone_name}</h5>
-            <p class="card-text">Brand: ${mobile.brand}</p>
+            <p class="card-text"><strong>Brand:</strong> ${mobile.brand}</p>
             <button onclick = "signleItem('${mobile.slug}')" type="button" class="btn btn-secondary" >Details</button>
         </div>
     </div>
@@ -74,7 +73,8 @@ const displayItem = (items) => {
     }
 // Display Signle Item
 function displayData(data) {
-console.log(data)
+console.log(data.releaseDate)
+
     // Remove Previous element
     mobileModal.textContent = "";
     //Create div element
@@ -90,21 +90,21 @@ console.log(data)
                     <div class="row">
                         <div class="col-md-4">
                             <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
-                            <p class="card-text">Release Date: ${data?.releaseDate}</p>
+                            <p class="card-text mt-3"><strong>Release Date:</strong> ${data?.releaseDate && "No date"}</p>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">                       
-                            <fieldset>
-                                <legend>Main Features:</legend>
-                                <p class="card-text">Storage: ${data.mainFeatures.storage}</p>
-                                <p class="card-text">Display Size: ${data.mainFeatures.displaySize}</p>                       
-                            </fieldset>
+                                <fieldset>
+                                    <legend>Main Features:</legend>
+                                    <p class="card-text"> <strong>Storage:</strong> ${data.mainFeatures.storage}</p>
+                                    <p class="card-text"> <strong>Display Size:</strong> ${data.mainFeatures.displaySize}</p>                       
+                                </fieldset>
 
-                            <fieldset>
-                                <legend>Others:</legend>
-                                <p class="card-text">WLAN: ${data.others.WLAN}</p>
-                                <p class="card-text">Bluetooth: ${data.others.Bluetooth}</p>
-                            </fieldset>
+                                <fieldset>
+                                    <legend>Others:</legend>
+                                    <p class="card-text"><strong>WLAN:</strong> ${data.others.WLAN}</p>
+                                    <p class="card-text"> <strong>Bluetooth:</strong> ${data.others.Bluetooth}</p>
+                                </fieldset>
                             </div>
                         </div>
                     </div>                  
