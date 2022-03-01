@@ -113,10 +113,13 @@ function displayData(data) {
     mobileModal.style.display = "block";
     //Create div element
     const div = document.createElement('div');
-    div.classList.add('modal-content');
+    div.classList.add('card');
     div.innerHTML = `           
        
             <div class="row w-100 g-4 p-md-5">
+                <div class="text-end">
+                    <button id="close" class="btn btn-sm btn-danger d-inline-block">Close</button>
+                </div>
                 <div class="col-md-4 align-items-center">
                     <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
                     <h5 class="modal-title text-success mt-3 mb-1" id="exampleModalLabel"><strong>Name:</strong> ${data.name}</h5>                        
@@ -124,7 +127,7 @@ function displayData(data) {
                     <p class="card-text mt-0">${releaseDate}</p>
                 </div>
                 <div class="col-md-8 text-start overflow-hidden">
-                    <div class="card-body">                       
+                    <div class="">                       
                         <fieldset>
                             <legend>Main Features:</legend>
                             <p class="card-text mb-0"> <strong>ChipSet:</strong> ${data.mainFeatures.chipSet}</p>
@@ -142,6 +145,7 @@ function displayData(data) {
                             <p class="card-text">${sensorItem }</p>
                         </fieldset>
                     </div>
+                    
                 </div>
             </div>                  
       
@@ -150,3 +154,12 @@ function displayData(data) {
     mobileModal.appendChild(div);
 
 }
+
+//close button
+
+
+mobileModal.addEventListener('click', function(e){
+    if(e.target.classList[0] == "btn"){
+        mobileModal.style.display = "none";
+    }
+})
