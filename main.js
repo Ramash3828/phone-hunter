@@ -8,23 +8,29 @@ const mobileModal = document.getElementById('mobileModal');
 
 
 
+
 // Get Data
 const getData = () => {
     // Validation part
     if (!isNaN(inputValue.value) || inputValue.value == "") {
-        massage.textContent = "Please enter the valid text....";
+        massage.textContent = "Please enter the valid text....";        
         massage.style.display = "block";
         inputValue.value = "";
+        mobileContainer.textContent = "";
+        loader("block");
         setTimeout(() => {
             massage.style.display = "none";
+            // loader("none");
         }, 2000)
     } else {
+        mobileContainer.textContent = "";
         fetch(`https://openapi.programming-hero.com/api/phones?search=${inputValue.value}`)
         .then((res => res.json()))
-        .then(data => displayItem(data.data))
+        .then(data => displayItem(data.data));
+        loader("none");
     }
 }
-
+const loader = (showHide)=>{ document.getElementById('load').style.display= showHide;}
 const displayItem = (items) => {
     // console.log(items)
     // Remove Previous element
