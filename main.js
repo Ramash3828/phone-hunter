@@ -7,7 +7,19 @@ const mobileContainer = document.getElementById('mobile-container');
 const mobileModal = document.getElementById('mobileModal');
 
 
-
+//Heading animation
+let start = 0;
+function textTypieng() {
+    heading.innerText = text.slice(0, start);
+    start++;
+  console.log(start)
+    if(heading.innerText.length == text.length){
+        console.log('clear')
+        clearInterval(time)       
+        return false;
+    }
+}
+let time = setInterval(textTypieng, 100)
 
 // Get Data
 const getData = () => {
