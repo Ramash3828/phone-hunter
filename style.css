@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+#noData {
+  display: none;
+}
 #heading {
   text-transform: uppercase;
 }
@@ -34,9 +36,9 @@
 
 .loading {
   display: none;
-  width: 25%;
+  width: 20%;
   position: absolute;
-  top: 55%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
