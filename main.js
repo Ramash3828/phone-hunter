@@ -20,12 +20,13 @@ const getData = () => {
         }, 2000)
     } else {
         fetch(`https://openapi.programming-hero.com/api/phones?search=${inputValue.value}`)
-            .then((res => res.json()))
-            .then(data => console.log(data.mobiles)
+        .then((res => res.json()))
+        .then(data => displayItem(data.data))
     }
 }
 
 const displayItem = (items) => {
+    console.log(items)
     // Remove Previous element
     mobileContainer.textContent = "";
     //Create All element
@@ -34,10 +35,10 @@ const displayItem = (items) => {
         div.classList.add('col');
         div.innerHTML = `
     <div onclick = "signleItem('${mobile.idmobile}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card" style="cursor: pointer;">
-        <img  src="${mobile.strmobileThumb}" class="card-img-top img-fluid" alt="${mobile.strmobile}">
+        <img  src="${mobile.image}" class="card-img-top img-fluid" alt="${mobile.phone_name}">
         <div class="card-body">
-            <h5 class="card-title">${mobile.strmobile}</h5>
-            <p class="card-text">${mobile.strInstructions.slice(0, 100)}</p>
+            <h5 class="card-title">${mobile.phone_name}</h5>
+            <p class="card-text">Brand: ${mobile.brand}</p>
         </div>
     </div>
     `
@@ -45,3 +46,4 @@ const displayItem = (items) => {
     });
     inputValue.value = "";
 }
+
