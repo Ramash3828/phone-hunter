@@ -22,6 +22,7 @@ let time = setInterval(textTypieng, 100)
 
 // Get Data
 const getData = () => {
+
     // Validation part
     if (!isNaN(inputValue.value) || inputValue.value == "") {
         massage.textContent = "Please enter the valid text....";        
@@ -73,8 +74,21 @@ const displayItem = (items) => {
     }
 // Display Signle Item
 function displayData(data) {
-console.log(data.releaseDate)
 
+// Release Date
+let releaseDate = "";
+if(data.releaseDate == ""){
+    releaseDate = "No date"
+}else{
+    releaseDate = data.releaseDate;
+}
+// Sensor data
+let sensor = data.mainFeatures.sensors;
+let sensorItem = [];
+sensor.forEach((item) =>{
+    return sensorItem.push(item + " ");
+});
+console.log(data)
     // Remove Previous element
     mobileModal.textContent = "";
     //Create div element
@@ -87,23 +101,27 @@ console.log(data.releaseDate)
                 </div>
               
                 <div class="modal-body w-100 mx-auto">
-                    <div class="row">
+                    <div class="row w-100">
                         <div class="col-md-4">
                             <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
-                            <p class="card-text mt-3"><strong>Release Date:</strong> ${data?.releaseDate && "No date"}</p>
+                            <p class="card-text mt-3"><strong>Release Date:</strong> ${releaseDate}</p>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 text-start">
                             <div class="card-body">                       
                                 <fieldset>
                                     <legend>Main Features:</legend>
-                                    <p class="card-text"> <strong>Storage:</strong> ${data.mainFeatures.storage}</p>
+                                    <p class="card-text mb-0"> <strong>Storage:</strong> ${data.mainFeatures.storage}</p>
                                     <p class="card-text"> <strong>Display Size:</strong> ${data.mainFeatures.displaySize}</p>                       
                                 </fieldset>
 
                                 <fieldset>
                                     <legend>Others:</legend>
-                                    <p class="card-text"><strong>WLAN:</strong> ${data.others.WLAN}</p>
-                                    <p class="card-text"> <strong>Bluetooth:</strong> ${data.others.Bluetooth}</p>
+                                    <p class="card-text mb-0"><strong>WLAN:</strong> ${data.others !== undefined ? data.others.WLAN : "No property"}</p>
+                                    <p class="card-text"> <strong>Bluetooth:</strong> ${data.others !== undefined ? data.others.Bluetooth : "No property"}</p>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Sensors:</legend>
+                                    <p class="card-text">${sensorItem }</p>
                                 </fieldset>
                             </div>
                         </div>
