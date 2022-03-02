@@ -35,7 +35,7 @@ const getData = () => {
     
         setTimeout(() => {
             massage.style.display = "none";
-            // loader("none");
+           
         }, 2000)
     } else {
         mobileContainer.textContent = "";
@@ -47,7 +47,7 @@ const getData = () => {
     }
 }  
 // Loader function
-const loader = (showHide)=>{ document.getElementById('load').style.display= showHide;}
+// const loader = (showHide)=>{ document.getElementById('load').style.display= showHide;}
 const notFound = (showHide)=>{ document.getElementById('noData').style.display= showHide;}
 
 const displayItem = (items) => {
@@ -117,16 +117,14 @@ function displayData(data) {
     div.innerHTML = `           
        
             <div class="row w-100 g-4 p-md-5">
-                <div class="text-end">
-                    <button id="close" class="btn btn-sm btn-danger d-inline-block">Close</button>
-                </div>
+               
                 <div class="col-md-4 align-items-center">
                     <img src="${data.image}" class="card-img-top img-fluid " alt="${data.name}">
                     <h5 class="modal-title text-success mt-3 mb-1" id="exampleModalLabel"><strong>Name:</strong> ${data.name}</h5>                        
                     <p class="card-text mt-3 mb-0"><strong>Release Date:</strong></p>
                     <p class="card-text mt-0">${releaseDate}</p>
                 </div>
-                <div class="col-md-8 text-start overflow-hidden">
+                <div class="col-md-6 text-start overflow-hidden">
                     <div class="">                       
                         <fieldset>
                             <legend>Main Features:</legend>
@@ -146,6 +144,9 @@ function displayData(data) {
                         </fieldset>
                     </div>
                     
+                </div>
+                <div class="text-end">
+                    <button id="close" class="btn btn-sm btn-danger d-inline-block">Close</button>
                 </div>
             </div>                  
       
